@@ -193,14 +193,7 @@ def _existing_environment_interactions(page, env_name, time_to_build_env=3*60*10
     # change the description
     page.get_by_placeholder("Enter here the description of your environment").fill("new description")
     # change the vesion spec of an existing package
-    # page.get_by_role("row", name="ipykernel", exact=False).get_by_role("button").first.click()
-    btn = page.get_by_role("row", name="ipykernel", exact=False).get_by_role("button")
-
-    for txt in page.get_by_text("", exact=False).all():
-        print("txt:", txt.text_content())
-
-    btn.first.click()
-
+    page.get_by_role("row", name="ipykernel", exact=False).get_by_test_id("ConstraintSelectTest").click()
     page.get_by_role("option", name=">=").click()
     # Note: purposefully not testing version constraint since there is inconsistent behavior here
 
