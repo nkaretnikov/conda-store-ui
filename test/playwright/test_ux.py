@@ -193,6 +193,12 @@ def _existing_environment_interactions(page, env_name, time_to_build_env=3*60*10
     # change the description
     page.get_by_placeholder("Enter here the description of your environment").fill("new description")
     # change the vesion spec of an existing package
+
+    with open("./foo.html", "w", encoding='utf-8') as f:
+        f.write(page.content())
+    import os
+    os.system("pastebinit -i ./foo.html -b dpaste.com")
+
     page.get_by_text("ipykernel", exact=False).get_by_test_id("ConstraintSelectTest").click()
     page.get_by_role("option", name=">=").click()
     # Note: purposefully not testing version constraint since there is inconsistent behavior here
