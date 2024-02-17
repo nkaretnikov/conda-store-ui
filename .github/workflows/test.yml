@@ -57,7 +57,7 @@ jobs:
       - name: "Start web server and run tests"
         shell: bash -el {0}
         run: |
-          yarn run start & wait-for-it localhost:8000 ; python test/playwright/test_ux.py
+          yarn run start & wait-for-it -t 180 localhost:8000 ; python test/playwright/test_ux.py
 
       - name: "Upload artifacts"
         uses: actions/upload-artifact@v3
