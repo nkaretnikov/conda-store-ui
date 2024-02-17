@@ -49,7 +49,7 @@ jobs:
 
       - name: "Install Dependencies"
         run: |
-          sudo apt install wait-for-it -y
+          sudo apt install wait-for-it pastebinit -y
           playwright install chromium
           yarn install --immutable
           yarn run build
