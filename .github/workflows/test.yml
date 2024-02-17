@@ -57,7 +57,7 @@ jobs:
       - name: "Start web server and run tests"
         shell: bash -el {0}
         run: |
-          yarn run start & python test/playwright/test_ux.py
+          yarn run start & sleep 10 ; python test/playwright/test_ux.py
 
       - name: "Upload artifacts"
         uses: actions/upload-artifact@v3
