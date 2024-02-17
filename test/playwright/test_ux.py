@@ -306,7 +306,7 @@ if __name__ == "__main__":
     # Use playwright.chromium, playwright.firefox or playwright.webkit
     # Pass headless=False to launch() to see the browser UI
     # slow_mo adds milliseconds to each playwright command so humans can follow along
-    browser = playwright.chromium.launch(headless=False, slow_mo=500)
+    browser = playwright.chromium.launch(headless=True, slow_mo=500)
     page = browser.new_page()
 
     # Go to http://localhost:{server_port}
