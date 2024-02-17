@@ -193,12 +193,11 @@ def _existing_environment_interactions(page, env_name, time_to_build_env=3*60*10
     # change the description
     page.get_by_placeholder("Enter here the description of your environment").fill("new description")
     # change the vesion spec of an existing package
-    page.get_by_role("row", name="ipykernel", exact=False).get_by_role("button").first.click()
-
-    with open("./foo.html", "w", encoding='utf-8') as f:
-        f.write(page.content())
-    import os
-    os.system("pastebinit -i ./foo.html -b dpaste.com")
+    # page.get_by_role("row", name="ipykernel", exact=False).get_by_role("button").first.click()
+    btn = page.get_by_role("row", name="ipykernel", exact=False).get_by_role("button")
+    for b in btn.all():
+        print("btn:", b.text_content())
+    btn.first.click()
 
     page.get_by_role("option", name=">=").click()
     # Note: purposefully not testing version constraint since there is inconsistent behavior here
