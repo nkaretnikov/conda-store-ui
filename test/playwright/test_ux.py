@@ -194,7 +194,7 @@ def _existing_environment_interactions(page, env_name, time_to_build_env=3*60*10
     page.get_by_placeholder("Enter here the description of your environment").fill("new description")
     # change the vesion spec of an existing package
     r = page.get_by_role("row", name="ipykernel", exact=False).get_by_role("combobox").first
-    # r.click()
+    r.click()
     page.get_by_role("option", name=">=").click()
     # Note: purposefully not testing version constraint since there is inconsistent behavior here
 
